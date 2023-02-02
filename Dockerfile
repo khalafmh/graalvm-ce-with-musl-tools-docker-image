@@ -1,11 +1,9 @@
-FROM springci/graalvm-ce:java17-0.12.x
+FROM ghcr.io/graalvm/native-image:22.3.1
 ARG ZLIB_VERSION=1.2.13
 ARG INSTALL_ROOT=/opt/musl
 
 WORKDIR $INSTALL_ROOT
-RUN apt update \
-    && apt install -y wget \
-    && apt clean \
+RUN microdnf install -y wget gzip \
     && wget https://musl.cc/x86_64-linux-musl-native.tgz \
     && wget https://zlib.net/zlib-$ZLIB_VERSION.tar.gz \
     && tar -xvzf x86_64-linux-musl-native.tgz \
