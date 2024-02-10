@@ -1,5 +1,5 @@
-FROM ghcr.io/graalvm/native-image:22.3.1
-ARG ZLIB_VERSION=1.2.13
+FROM ghcr.io/graalvm/native-image:22.3.3
+ARG ZLIB_VERSION=1.3.1
 ARG INSTALL_ROOT=/opt/musl
 
 WORKDIR $INSTALL_ROOT
